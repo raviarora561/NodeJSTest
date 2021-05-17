@@ -1,0 +1,30 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: nodejstest
+spec:
+  replicas: 8
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: nodejstest
+    spec:     # pod spec                  
+      containers: 
+      - name: nodejstest
+        resources:
+          requests:
+            memory: "128Mi"
+          limits:
+            memory: "500Mi"
+        imagePullPolicy: Always
+        image: DockerhubUsername/equibizprodapi # image we pushed
+        ports:
+        - containerPort: 3000
+      imagePullSecrets:
+      - name: regcred
+      

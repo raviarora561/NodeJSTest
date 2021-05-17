@@ -1,0 +1,14 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+ annotations:
+ name: nodejstest-hpa
+ namespace: default
+spec:
+ maxReplicas: 12
+ minReplicas: 8
+ scaleTargetRef:
+  apiVersion: extensions/v1
+  kind: Deployment
+  name: nodejstest
+ targetCPUUtilizationPercentage: 50
