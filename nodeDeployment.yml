@@ -23,7 +23,7 @@ spec:
           requests:
             memory: "128Mi"
           limits:
-            memory: "250Mi"
+            memory: "128Mi"
         imagePullPolicy: Always
         image: raviarora561/nodejstest:latest # image we pushed
         ports:
