@@ -22,7 +22,7 @@ spec:
           limits:
             memory: "500Mi"
         imagePullPolicy: Always
-        image: DockerhubUsername/equibizprodapi # image we pushed
+        image: DockerhubUsername/nodejstest:latest # image we pushed
         ports:
         - containerPort: 3000
       imagePullSecrets:
